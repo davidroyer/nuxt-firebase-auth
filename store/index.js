@@ -21,13 +21,7 @@ const createStore = () => {
               }
               return resolve();
           });
-        });
-        // console.log('Store', state.user);
-        // // console.log(firebase.auth().currentUser);
-        // let User = await firebase.auth().currentUser
-        // if (User !== null ) {
-        //   commit('setUser', {email: firebase.auth().currentUser})
-        // }
+        })
       },
 
       autoSignIn ({commit}, payload) {
