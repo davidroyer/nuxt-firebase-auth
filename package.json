@@ -1,7 +1,7 @@
 {
-  "name": "nuxt-lowdb",
+  "name": "nuxt-firebase-auth",
   "version": "1.0.0",
-  "description": "Nuxt.js project",
+  "description": "Nuxt.js with Firebase Auth project",
   "author": "David Royer <droyer01@gmail.com>",
   "private": true,
   "scripts": {

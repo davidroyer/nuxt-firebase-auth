@@ -11,8 +11,14 @@
 </template>
 
 <script>
-
+import firebase from 'firebase'
 export default {
+  fetch ({ store, params }) {
+    let user = firebase.auth().currentUser
+    console.log('From Fetch: ', user);
+    // store.commit('setUser', user)
+  },
+
   methods: {
     logout () {
       this.$store.dispatch('userSignOut')
