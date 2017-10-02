@@ -1,12 +1,73 @@
 <template>
-  <div class="login">
-    <h5>Login</h5>
-    <div><label for="email">Email<input type="text" v-model="formEmail" name="email"></label></div>
-    <div><label for="email">Password<input type="text" v-model="formPassword" name="password"></label></div>
-    <button @click="login">Login</button>
-    <hr>
-    <!-- <button @click="googleSignUp">Google Sign In</button> -->
-  </div>
+  <v-layout>
+    <v-flex xs12 sm5>
+      <v-card class="grey lighten-4 elevation-3">
+         <v-card-text>
+           <h3>Login</h3>
+           <v-container fluid>
+             <v-layout row>
+               <v-flex>
+                 <v-text-field
+                   v-model="formEmail"
+                   name="email"
+                   label="Email"
+                   id="email"
+                 ></v-text-field>
+               </v-flex>
+             </v-layout>
+             <v-layout row>
+               <v-flex xs8>
+                 <v-text-field
+                 v-model="formPassword"
+                 name="password"
+                 label="Password"
+                 id="password"
+                 ></v-text-field>
+               </v-flex>
+             </v-layout>
+
+           </v-container>
+         </v-card-text>
+         <v-btn primary @click="login">Login</v-btn>
+         <v-btn @click="googleSignUp">Google Sign In</v-btn>
+
+       </v-card>
+    </v-flex>
+    <v-flex xs12 sm5>
+      <v-card class="grey lighten-4 elevation-3">
+         <v-card-text>
+           <h3>Sign Up</h3>
+           <v-container fluid>
+             <v-layout row>
+               <v-flex>
+                 <v-text-field
+                   v-model="formEmail"
+                   name="email"
+                   label="Email"
+                   id="email"
+                 ></v-text-field>
+               </v-flex>
+             </v-layout>
+             <v-layout row>
+               <v-flex xs8>
+                 <v-text-field
+                 v-model="formPassword"
+                 name="password"
+                 label="Password"
+                 id="password"
+                 ></v-text-field>
+               </v-flex>
+             </v-layout>
+
+           </v-container>
+         </v-card-text>
+         <v-btn primary @click="login">Login</v-btn>
+         <v-btn @click="googleSignUp">Google Sign In</v-btn>
+
+       </v-card>
+    </v-flex>
+  </v-layout>
+
 </template>
 
 <script>
@@ -25,6 +86,13 @@ export default {
       }).then(() => {
         this.formEmail = ''
         this.formPassword = ''
+      }).catch((e) => {
+        console.log(e.message);
+      })
+    },
+    googleSignUp () {
+      this.$store.dispatch('signInWithGoogle').then(() => {
+
       }).catch((e) => {
         console.log(e.message);
       })

@@ -8,9 +8,10 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://unpkg.com/ace-css/css/ace.min.css' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
+  // mode: 'spa',
   loading: { color: '#3B8070' },
   build: {
     extend (config, ctx) {
@@ -22,13 +23,16 @@ module.exports = {
         //   exclude: /(node_modules)/
         // })
       }
-    }
+    },
+    extractCSS: true
   },
   plugins: [
     {src: '~/plugins/firebase.js'},
+    {src: '~/plugins/firebase-auth.js'},
     {src: '~/plugins/vuetify.js'}
   ],
   css: [
     { src: '~/assets/css/main.css', lang: 'css'},
+    { src: '~/assets/css/app.styl', lang: 'styl'}
   ]
 }

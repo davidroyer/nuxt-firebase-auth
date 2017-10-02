@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import firebase from 'firebase'
-
+// const auth = firebase.auth()
 const createStore = () => {
   return new Vuex.Store({
     state: {
@@ -12,16 +12,27 @@ const createStore = () => {
       }
     },
     actions: {
-      nuxtServerInit ({ state, commit }, { req }) {
+      checkForActiveUser({commit}) {
         return new Promise((resolve, reject) => {
-          firebase.auth().onAuthStateChanged(user => {
-              if (user) {
-                return resolve(commit('setUser', user))
-                console.log('Fired from Plugin');
-              }
-              return resolve();
-          });
+          firebase.auth().onAuthStateChanged((user) => {
+            resolve(user)
+            commit('setUser', user)
+          }, (error) => {
+            console.log(error)
+          })
         })
+      },
+      async nuxtServerInit ({ state, commit, dispatch }, { req }) {
+        return firebase.auth().onAuthStateChanged((user) => {
+          console.log('nuxtServerInit', user);
+          commit('setUser', user)
+        })
+
+
+        // return dispatch('checkForActiveUser').then(() => {
+        //   console.log('In nuxtServerInit: ', state.user);
+        //
+        // })
       },
 
       autoSignIn ({commit}, payload) {

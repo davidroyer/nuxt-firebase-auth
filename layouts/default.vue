@@ -1,91 +1,101 @@
 <template>
-  <div>
-    <nuxt/>
-  </div>
+  <v-app toolbar footer>
+    <v-navigation-drawer
+      persistent
+      enableResizeWatcher
+      v-model="drawer">
+      <v-list>
+        <v-list-tile
+          router
+          nuxt
+          v-for="(item, i) in items"
+          :key="i"
+          :to="item.to"
+        >
+          <v-list-tile-action>
+            <v-icon v-html="item.icon"></v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title v-text="item.title"></v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar fixed>
+      <v-btn
+        icon
+        @click.native.stop="drawer = !drawer">
+        <v-icon>menu</v-icon>
+      </v-btn>
+
+      <v-toolbar-title v-text="title"></v-toolbar-title>
+
+    </v-toolbar>
+    <main>
+      <v-container fluid>
+        <nuxt />
+      </v-container>
+    </main>
+    <v-footer :fixed="fixed">
+      <span>&copy; 2017</span>
+    </v-footer>
+  </v-app>
 </template>
-
-<style>
-html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
-.container {
-  min-height: 100vh;
-  display: flex;
-  padding: 2em;
-  justify-content: center;
-  align-items: flex-start;
-  flex-flow: row wrap;
-  /*text-align: center;*/
-}
-.container > div {
-  flex-basis: 100%;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 2.5em;
-  color: #35495e;
-  letter-spacing: 1px;
-  margin-top: 0;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-@media (min-width: 750px) {
-  .title {
-    font-size: 5em;
+<script>
+export default {
+  components: {
+  },
+  data () {
+    return {
+      clipped: false,
+      drawer: true,
+      fixed: false,
+      items: [
+        { icon: 'home', title: 'Welcome', to: '/' },
+        { icon: 'info', title: 'About', to: '/about' },
+        { icon: 'person', title: 'Admin', to: '/admin' }
+      ],
+      miniVariant: false,
+      right: true,
+      rightDrawer: false,
+      title: 'Vuetify.js'
+    }
   }
 }
+</script>
+
+<style>
+/*.container
+{
+  margin: 0;
+  width: 100%;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.button, .button:visited
+{
+  display: inline-block;
+  color: black;
+  letter-spacing: 1px;
+  background-color: #fff;
+  border: 2px solid #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 15px 45px;
+}
+
+.button:hover, .button:focus
+{
+  color: #fff;
+  background-color: #000;
+}
+
+.title
+{
+  color: #000;
+  font-weight: 300;
+  font-size: 2.5em;
+  margin: 0;
+}*/
 </style>

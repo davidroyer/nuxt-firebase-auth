@@ -8,3 +8,7 @@
   opacity: 0;
   transform: translate(10px, 0);
 }
+
+html, body {
+  font-size: 102% !important;
+}

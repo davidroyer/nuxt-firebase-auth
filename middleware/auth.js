@@ -1,6 +1,17 @@
 export default function ({ app, route, store, redirect, error, isClient }) {
-    console.log(store.state.user);
-      if (store.state.user == null) {
-        redirect('/')
-      }
+  store.dispatch('checkForActiveUser').then(() => {
+    console.log('firebase-auth: ', store.state.user);
+    if (store.state.user == null) {
+      return redirect('/')
+    }
+  })
+    // console.log('Middleware: ', store.state.user);
+    // if (isClient) {
+    //   if (store.state.user == null) {
+    //     return redirect('/')
+    //   } else {
+    //     return
+    //   }
+    // }
+
 }
