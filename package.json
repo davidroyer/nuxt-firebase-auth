@@ -16,7 +16,8 @@
   "dependencies": {
     "firebase": "^4.4.0",
     "lowdb": "^1.0.0",
-    "nuxt": "^1.0.0-rc11"
+    "nuxt": "^1.0.0-rc11",
+    "vuetify": "^0.15.7"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
