@@ -1,5 +1,5 @@
 <template>
-  <section class="">
+  <section>
     <div>
       <h1 class="title">About</h1>
       <p>Some content will go here about this project.</p>

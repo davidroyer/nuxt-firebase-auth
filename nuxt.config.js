@@ -1,6 +1,3 @@
-// const Auth = require('~/auth/index.js')
-// // Auth.isAuthenticated
-// console.log('AUTH', Auth);
 module.exports = {
   head: {
     title: 'Nuxt Firebae Auth',
@@ -32,7 +29,6 @@ module.exports = {
 
   plugins: [
     {src: '~/plugins/firebase.js'},
-    // {src: '~/plugins/firebase-auth.js'},
     {src: '~/plugins/vuetify.js'}
   ],
   css: [

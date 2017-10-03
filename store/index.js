@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import firebase from 'firebase'
-// const auth = firebase.auth()
+
 const createStore = () => {
   return new Vuex.Store({
     state: {
@@ -20,12 +20,6 @@ const createStore = () => {
           }, (error) => {
             console.log(error)
           })
-        })
-      },
-      async nuxtServerInit ({ state, commit, dispatch }, { req }) {
-        return firebase.auth().onAuthStateChanged((user) => {
-          console.log('nuxtServerInit', user);
-          commit('setUser', user)
         })
       },
 
@@ -57,14 +51,17 @@ const createStore = () => {
 
       signInWithGoogle () {
         const provider = new firebase.auth.GoogleAuthProvider()
-        firebase.auth().signInWithRedirect(provider).then((result) => {
-          this.user = result.user
+        firebase.auth().signInWithRedirect(provider)
+        .then(firebaseUser => {
+          commit('setUser', firebaseUser)
           this.app.router.push('/admin')
-        }).catch(err => console.log(error))
+        })
+        .catch(err => console.log(error))
       },
 
       userSignOut ({commit}) {
-        firebase.auth().signOut().then(() => {
+        firebase.auth().signOut()
+        .then(() => {
           commit('setUser', null)
           console.log('PUSH ROUTER TO HOME/ANOTHER PAGE');
         }).catch(err => console.log(error))
