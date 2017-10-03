@@ -12,7 +12,11 @@ const createStore = () => {
       }
     },
     actions: {
-      checkForActiveUser({commit}) {
+      setActiveUser ({commit}, firebaseUser) {
+        commit('setUser', firebaseUser)
+      },
+
+      checkForActiveUser ({commit}) {
         return new Promise((resolve, reject) => {
           firebase.auth().onAuthStateChanged((user) => {
             resolve(user)
@@ -31,7 +35,7 @@ const createStore = () => {
         firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
         .then(firebaseUser => {
           commit('setUser', firebaseUser)
-          this.app.router.push('/admin')
+
         })
         .catch(error => {
           console.log(error.message);

@@ -1,45 +1,36 @@
-import Vue from 'vue'
-import Firebase from 'firebase'
+import * as firebase from 'firebase';
 
-const firebasePlugin = {
-  install() {
-    if (Vue.__nuxt_firebase_installed__) {
-      return
-    }
-    Vue.__nuxt_firebase_installed__ = true
+const firebaseConfig = {
+  apiKey: "AIzaSyAzdoAjlM9YlQ-gl8VRayCxtJbnrl9qDsw",
+  authDomain: "nuxt-firebase-auth.firebaseapp.com",
+  databaseURL: "https://nuxt-firebase-auth.firebaseio.com",
+  projectId: "nuxt-firebase-auth",
+  storageBucket: "nuxt-firebase-auth.appspot.com",
+  messagingSenderId: "316484287956"
+};
 
-    if (!Vue.prototype.$firebase) {
-      Vue.prototype.$firebase = Firebase.initializeApp({
-        apiKey: "AIzaSyAzdoAjlM9YlQ-gl8VRayCxtJbnrl9qDsw",
-        authDomain: "nuxt-firebase-auth.firebaseapp.com",
-        databaseURL: "https://nuxt-firebase-auth.firebaseio.com",
-        projectId: "nuxt-firebase-auth",
-        storageBucket: "nuxt-firebase-auth.appspot.com",
-        messagingSenderId: "316484287956"
-      })
-    }
-  }
-}
+export default (context) => {
+  const {app, store, redirect} = context
 
-Vue.use(firebasePlugin)
 
-export default (ctx) => {
-  const {app, store, redirect} = ctx
+  // This is shortened version of normal if else statement (normal version is commented out below)
 
-  app.$firebase = Vue.prototype.$firebase
-  ctx.$firebase = Vue.prototype.$firebase
-  if (store) {
+  !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
-    store.$firebase = Vue.prototype.$firebase
+  // if (!firebase.apps.length) {
+  //   firebase.initializeApp(firebaseConfig)
+  // } else {
+  //   firebase.app();
+  // }
 
-    return new Promise((resolve, reject) => {
-      Firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-          resolve(store.commit('setUser', user))
-          // app.router.push('/admin') // This works here
-        }
-        return resolve();
-      });
-    })
-  }
+
+  return new Promise((resolve, reject) => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        store.dispatch('setActiveUser', user)
+        resolve(user)
+      }
+      return resolve();
+    });
+  })
 }
