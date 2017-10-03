@@ -1,6 +1,7 @@
 # Nuxt.js Firebase Auth
 
 
+[Demo](https://nuxt-firebase-auth.firebaseapp.com)
 > Nuxt.js project
 
 ## Build Setup
