@@ -14,7 +14,7 @@ const firebasePlugin = {
         authDomain: "nuxt-firebase-auth.firebaseapp.com",
         databaseURL: "https://nuxt-firebase-auth.firebaseio.com",
         projectId: "nuxt-firebase-auth",
-        storageBucket: "",
+        storageBucket: "nuxt-firebase-auth.appspot.com",
         messagingSenderId: "316484287956"
       })
     }

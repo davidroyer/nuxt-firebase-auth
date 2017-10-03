@@ -2054,6 +2054,10 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
+express-firebase-auth@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/express-firebase-auth/-/express-firebase-auth-1.0.1.tgz#bd2c4f12956ff0aae1d16cc1feaca928f0f0db4e"
+
 express@^4.15.2:
   version "4.16.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.16.1.tgz#6b33b560183c9b253b7b62144df33a4654ac9ed0"

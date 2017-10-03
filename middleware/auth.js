@@ -5,13 +5,4 @@ export default function ({ app, route, store, redirect, error, isClient }) {
       return redirect('/')
     }
   })
-    // console.log('Middleware: ', store.state.user);
-    // if (isClient) {
-    //   if (store.state.user == null) {
-    //     return redirect('/')
-    //   } else {
-    //     return
-    //   }
-    // }
-
 }

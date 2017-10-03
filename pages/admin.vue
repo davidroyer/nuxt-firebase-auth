@@ -6,7 +6,7 @@
         Admin Page Here
       </h1>
       <v-avatar
-        v-if="$store.state.user.photoURL"
+        v-if="$store.state.user"
         :tile="false"
         :size="avatarSize"
         class="grey lighten-4">

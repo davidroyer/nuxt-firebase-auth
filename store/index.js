@@ -43,7 +43,7 @@ const createStore = () => {
         firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
         .then(firebaseUser => {
           commit('setUser', firebaseUser)
-
+          this.app.router.push('/admin')
         })
         .catch(error => {
           console.log(error.message);
@@ -65,6 +65,7 @@ const createStore = () => {
         const provider = new firebase.auth.GoogleAuthProvider()
         firebase.auth().signInWithRedirect(provider).then((result) => {
           this.user = result.user
+          this.app.router.push('/admin')
         }).catch(err => console.log(error))
       },
 
