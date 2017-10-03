@@ -14,7 +14,7 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
-  // mode: 'spa',
+  mode: 'spa',
   loading: { color: '#3B8070' },
   build: {
     extend (config, ctx) {
@@ -29,9 +29,7 @@ module.exports = {
     },
     extractCSS: true
   },
-  // serverMiddleware: [
-  //   { path: '/admin', handler: '~/fireauth/index.js' }
-  // ],
+
   plugins: [
     {src: '~/plugins/firebase.js'},
     // {src: '~/plugins/firebase-auth.js'},

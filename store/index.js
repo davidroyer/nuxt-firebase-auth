@@ -27,12 +27,6 @@ const createStore = () => {
           console.log('nuxtServerInit', user);
           commit('setUser', user)
         })
-
-
-        // return dispatch('checkForActiveUser').then(() => {
-        //   console.log('In nuxtServerInit: ', state.user);
-        //
-        // })
       },
 
       autoSignIn ({commit}, payload) {

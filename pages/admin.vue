@@ -22,6 +22,7 @@ import firebase from 'firebase'
 export default {
   fetch ({ store, params }) {
     let user = firebase.auth().currentUser
+    console.log('In admin fetch', user);
   },
   data () {
     return {
