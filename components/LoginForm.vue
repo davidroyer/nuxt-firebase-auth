@@ -1,70 +1,8 @@
 <template>
   <v-layout>
-    <v-flex xs12 sm5>
-      <v-card class="grey lighten-4 elevation-3">
-         <v-card-text>
-           <h3>Login</h3>
-           <v-container fluid>
-             <v-layout row>
-               <v-flex>
-                 <v-text-field
-                   v-model="formEmail"
-                   name="email"
-                   label="Email"
-                   id="email"
-                 ></v-text-field>
-               </v-flex>
-             </v-layout>
-             <v-layout row>
-               <v-flex xs8>
-                 <v-text-field
-                 v-model="formPassword"
-                 name="password"
-                 label="Password"
-                 id="password"
-                 ></v-text-field>
-               </v-flex>
-             </v-layout>
-
-           </v-container>
-         </v-card-text>
-         <v-btn primary @click="login">Login</v-btn>
-         <v-btn @click="googleSignUp">Google Sign In</v-btn>
-
-       </v-card>
-    </v-flex>
-    <v-flex xs12 sm5>
-      <v-card class="grey lighten-4 elevation-3">
-         <v-card-text>
-           <h3>Sign Up</h3>
-           <v-container fluid>
-             <v-layout row>
-               <v-flex>
-                 <v-text-field
-                   v-model="formEmail"
-                   name="email"
-                   label="Email"
-                   id="email"
-                 ></v-text-field>
-               </v-flex>
-             </v-layout>
-             <v-layout row>
-               <v-flex xs8>
-                 <v-text-field
-                 v-model="formPassword"
-                 name="password"
-                 label="Password"
-                 id="password"
-                 ></v-text-field>
-               </v-flex>
-             </v-layout>
-
-           </v-container>
-         </v-card-text>
-         <v-btn primary @click="login">Login</v-btn>
-         <v-btn @click="googleSignUp">Google Sign In</v-btn>
-
-       </v-card>
+    <v-flex text-xs-center xs12 sm6 offset-sm3>
+      <h5>Sign In with Google</h5>
+     <v-btn class="signIn mb-2" primary @click="googleSignUp">Google Sign In</v-btn>
     </v-flex>
   </v-layout>
 
@@ -102,4 +40,7 @@ export default {
 </script>
 
 <style lang="css">
+.signIn {
+
+}
 </style>

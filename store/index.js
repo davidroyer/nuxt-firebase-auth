@@ -9,7 +9,6 @@ const createStore = () => {
     mutations: {
       setUser (state, payload) {
         state.user = payload
-        // this.app.router.push('/admin')
       }
     },
     actions: {

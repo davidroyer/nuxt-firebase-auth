@@ -1,8 +1,4 @@
-// import Vue from 'vue'
-// import Vue from 'vue'
-import firebase from 'firebase';
-// import 'firebase/auth';
-// import 'firebase/database';
+import * as firebase from 'firebase';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAzdoAjlM9YlQ-gl8VRayCxtJbnrl9qDsw",
@@ -13,61 +9,28 @@ const firebaseConfig = {
   messagingSenderId: "316484287956"
 };
 
-const Fire = firebase.initializeApp(firebaseConfig);
-
-// return new Promise((resolve, reject) => {
-//   Fire.auth().onAuthStateChanged(user => {
-//     if (user) {
-//
-//       resolve(store.dispatch('setActiveUser', user))
-//       // app.router.push('/admin') // This works here
-//     }
-//     return resolve();
-//   });
-// })
+export default (context) => {
+  const {app, store, redirect} = context
 
 
-export const GoogleProvider = new firebase.auth.GoogleAuthProvider();
-export const GithubProvider = new firebase.auth.GithubAuthProvider();
-export const auth = Fire.auth();
-export const DB = Fire.database();
+  // This is shortened version of normal if else statement (normal version is commented out below)
 
-export default (ctx) => {
-  const {app, store, redirect} = ctx
+  !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
+
+  // if (!firebase.apps.length) {
+  //   firebase.initializeApp(firebaseConfig)
+  // } else {
+  //   firebase.app();
+  // }
+
 
   return new Promise((resolve, reject) => {
-    Fire.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(user => {
       if (user) {
-
-        resolve(store.dispatch('setActiveUser', user))
-        // app.router.push('/admin') // This works here
+        store.dispatch('setActiveUser', user)
+        resolve(user)
       }
       return resolve();
     });
   })
 }
-
-
-
-
-//
-// export default (ctx) => {
-//   const {app, store, redirect} = ctx
-//
-//   app.$firebase = Vue.prototype.$firebase
-//   ctx.$firebase = Vue.prototype.$firebase
-//   if (store) {
-//
-//     store.$firebase = Vue.prototype.$firebase
-//
-//     return new Promise((resolve, reject) => {
-//       Firebase.auth().onAuthStateChanged(user => {
-//         if (user) {
-//           resolve(store.commit('setUser', user))
-//           // app.router.push('/admin') // This works here
-//         }
-//         return resolve();
-//       });
-//     })
-//   }
-// }
