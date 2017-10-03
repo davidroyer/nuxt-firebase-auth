@@ -19,34 +19,27 @@ const firebasePlugin = {
       })
     }
   }
-
 }
 
 Vue.use(firebasePlugin)
 
 export default (ctx) => {
-  const {
-    app,
-    store,
-    redirect
-  } = ctx
+  const {app, store, redirect} = ctx
 
   app.$firebase = Vue.prototype.$firebase
   ctx.$firebase = Vue.prototype.$firebase
   if (store) {
+
     store.$firebase = Vue.prototype.$firebase
+
     return new Promise((resolve, reject) => {
       Firebase.auth().onAuthStateChanged(user => {
         if (user) {
-          return resolve(store.commit('setUser', user))
-          app.router.push('/admin')
-
-          console.log('Fired from Plugin');
+          resolve(store.commit('setUser', user))
+          // app.router.push('/admin') // This works here
         }
-
         return resolve();
       });
-    });
-
+    })
   }
 }

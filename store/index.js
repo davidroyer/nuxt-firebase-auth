@@ -52,11 +52,7 @@ const createStore = () => {
       signInWithGoogle () {
         const provider = new firebase.auth.GoogleAuthProvider()
         firebase.auth().signInWithRedirect(provider)
-        .then(firebaseUser => {
-          commit('setUser', firebaseUser)
-          this.app.router.push('/admin')
-        })
-        .catch(err => console.log(error))
+        this.app.router.push('/admin')
       },
 
       userSignOut ({commit}) {
