@@ -1,4 +1,5 @@
-# nuxt-lowdb
+# Nuxt.js Firebase Auth
+
 
 > Nuxt.js project
 
