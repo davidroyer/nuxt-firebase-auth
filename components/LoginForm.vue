@@ -4,7 +4,7 @@
       <h5>Sign In with Google</h5>
      <v-btn class="signIn mb-2" primary @click="googleSignUp">Google Sign In</v-btn>
 
-     <v-layout row>
+     <!-- <v-layout row>
        <v-flex>
          <v-text-field
            v-model="formEmail"
@@ -24,7 +24,7 @@
          ></v-text-field>
        </v-flex>
      </v-layout>
-     <v-btn class="signIn mb-2" primary @click="emailLogin">Email Sign In</v-btn>
+     <v-btn class="signIn mb-2" primary @click="emailLogin">Email Sign In</v-btn> -->
 
     </v-flex>
   </v-layout>
