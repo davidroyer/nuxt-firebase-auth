@@ -12,9 +12,7 @@ const firebaseConfig = {
 export default (context) => {
   const {app, store, redirect} = context
 
-
   // This is shortened version of normal if else statement (normal version is commented out below)
-
   !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
   // if (!firebase.apps.length) {
@@ -22,7 +20,6 @@ export default (context) => {
   // } else {
   //   firebase.app();
   // }
-
 
   return new Promise((resolve, reject) => {
     firebase.auth().onAuthStateChanged(user => {

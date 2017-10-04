@@ -9,11 +9,22 @@ const createStore = () => {
     mutations: {
       setUser (state, payload) {
         state.user = payload
+      },
+      setLoggedInUser (state, payload) {
+        state.user = payload
+        this.app.router.push('/admin')
       }
     },
     actions: {
       setActiveUser ({commit}, firebaseUser) {
         commit('setUser', firebaseUser)
+      },
+
+      async nuxtServerInit ({commit}) {
+        console.log('from nuxtServerInit: ', firebase.auth().currentUser);
+        let user = firebase.auth().currentUser
+        console.log(user);
+        commit('setUser', user)
       },
 
       checkForActiveUser ({commit}) {
@@ -35,14 +46,13 @@ const createStore = () => {
         firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
         .then(firebaseUser => {
           commit('setUser', firebaseUser)
-
         })
         .catch(error => {
           console.log(error.message);
         })
       },
 
-      userSignIn ({commit}, payload) {
+      signInWithEmail ({commit}, payload) {
         firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
         .then(firebaseUser => {
           commit('setUser', firebaseUser)
@@ -53,10 +63,9 @@ const createStore = () => {
         })
       },
 
-      signInWithGoogle () {
+      signInWithGoogle ({commit}) {
         const provider = new firebase.auth.GoogleAuthProvider()
         firebase.auth().signInWithRedirect(provider)
-        this.app.router.push('/admin')
       },
 
       userSignOut ({commit}) {

@@ -3,13 +3,13 @@
     <v-layout text-xs-center>
       <v-flex xs12 md8 offset-md2>
         <div class="wrapper">
-          
+
           <div v-if="!$store.state.user">
             <login-form></login-form>
             <!-- <v-btn outline large flat nuxt @click="$router.push('/login')" primary>Sign In</v-btn> -->
           </div>
           <div v-else class="flexWrapper">
-            <h4 class="blue--text">You're already logged in</h4>
+            <h4 class="blue--text">You're logged in!</h4>
             <v-btn icon class="blue white--text">
               <v-icon>thumb_up</v-icon>
             </v-btn>
