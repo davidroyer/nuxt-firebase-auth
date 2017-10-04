@@ -1,12 +1,17 @@
 import Vuex from 'vuex'
-import firebase from 'firebase'
+import firebase, { DB} from '@/fire/firebase.js';
+import { firebaseMutations } from 'vuexfire'
+
+
 
 const createStore = () => {
   return new Vuex.Store({
     state: {
+      todos: [],
       user: null
     },
     mutations: {
+
       setUser (state, payload) {
         state.user = payload
       },
@@ -74,7 +79,8 @@ const createStore = () => {
           commit('setUser', null)
           console.log('PUSH ROUTER TO HOME/ANOTHER PAGE');
         }).catch(err => console.log(error))
-      }
+      },
+      ...firebaseMutations
     }
   })
 }

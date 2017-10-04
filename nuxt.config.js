@@ -28,8 +28,9 @@ module.exports = {
   },
 
   plugins: [
-    {src: '~/plugins/firebase.js'},
-    {src: '~/plugins/vuetify.js'}
+    // {src: '~/plugins/firebase.js'},
+    {src: '~/plugins/vuetify.js'},
+    {src: '~/plugins/auth.js'}
   ],
   css: [
     { src: '~/assets/css/main.css', lang: 'css'},
