@@ -6,6 +6,11 @@ const createStore = () => {
     state: {
       user: null
     },
+    getters: {
+      activeUser: (state, getters) => {
+        return state.user
+      }
+    },
     mutations: {
       setUser (state, payload) {
         state.user = payload

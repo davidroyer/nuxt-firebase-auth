@@ -29,7 +29,10 @@
       </v-btn>
 
       <v-toolbar-title v-text="title"></v-toolbar-title>
-
+      <v-spacer></v-spacer>
+      <v-btn v-if="user" flat primary color="primary" @click.native.stop="logout">
+        Logout
+        <v-icon right>exit_to_app</v-icon></v-btn>
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -58,6 +61,20 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Nuxt Firebase Auth'
+    }
+  },
+  computed: {
+    user () {
+      return this.$store.getters.activeUser
+    }
+  },
+  methods: {
+    logout () {
+      this.$store.dispatch('userSignOut')
+      .then(() => {
+        alert('logged out!')
+        this.$router.push('/')
+      })
     }
   }
 }
