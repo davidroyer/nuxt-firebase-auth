@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import firebase from '@/fire/firebase.js'
+
 export default {
   data () {
     return {

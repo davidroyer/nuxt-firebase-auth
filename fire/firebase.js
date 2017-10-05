@@ -8,15 +8,8 @@ var config = {
   messagingSenderId: "316484287956"
 };
 
-firebase.initializeApp(config);
-// firebase.auth().onAuthStateChanged(user => {
-//   if (user != null) {
-//     app.$store.commit('setActiveUser', user)
-//     // resolve(user)
-//   }
-//   // return resolve();
-// });
 
+!firebase.apps.length ? firebase.initializeApp(config) : ''
 export const GoogleProvider = new firebase.auth.GoogleAuthProvider();
 export const GithubProvider = new firebase.auth.GithubAuthProvider();
 export const auth = firebase.auth();

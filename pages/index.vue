@@ -21,12 +21,21 @@
 </template>
 
 <script>
+import firebase from '@/fire/firebase.js'
 import LoginForm from '~/components/LoginForm'
 
 export default {
 components: {
   LoginForm
-  }
+  },
+  // created() {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     console.log('CREATED:: ', user);
+  //     if (user != null) {
+  //       this.$store.commit('setUser', user)
+  //     }
+  //   });
+  // }
 }
 </script>
 

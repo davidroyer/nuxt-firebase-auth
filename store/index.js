@@ -2,8 +2,6 @@ import Vuex from 'vuex'
 import firebase, { DB} from '@/fire/firebase.js';
 import { firebaseMutations } from 'vuexfire'
 
-
-
 const createStore = () => {
   return new Vuex.Store({
     state: {
@@ -25,22 +23,32 @@ const createStore = () => {
         commit('setUser', firebaseUser)
       },
 
-      async nuxtServerInit ({commit}) {
-        console.log('from nuxtServerInit: ', firebase.auth().currentUser);
-        let user = firebase.auth().currentUser
-        console.log(user);
-        commit('setUser', user)
+      nuxtServerInit ({commit}) {
+        // return new Promise((resolve, reject) => {
+        //   firebase.auth().onAuthStateChanged((user) => {
+        //
+        //     // console.log('INIT: ', user);
+        //     resolve(user)
+        //     // console.log(user);
+        //   }, (error) => {
+        //     console.log(error)
+        //   })
+        // }).then(user => {
+        //     console.log(firebase.auth().currentUser);
+        //   console.log('then worked!', user);
+        // })
       },
 
       checkForActiveUser ({commit}) {
         return new Promise((resolve, reject) => {
           firebase.auth().onAuthStateChanged((user) => {
-            resolve(user)
             commit('setUser', user)
+            resolve(user)
           }, (error) => {
             console.log(error)
           })
         })
+
       },
 
       autoSignIn ({commit}, payload) {
