@@ -7,18 +7,13 @@ export default (context) => {
     console.log('each ran');
     next()
   })
-
-  firebase.auth().onAuthStateChanged(user => {
-    if (user != null) {
-      store.commit('setUser', user)
-    }
-  });
-  // return new Promise((resolve, reject) => {
-  //   firebase.auth().onAuthStateChanged(user => {
-  //     if (user) {
-  //       return resolve(store.commit('setUser', user))
-  //     }
-  //     return resolve();
-  //   });
-  // })
+  
+  return new Promise((resolve, reject) => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        return resolve(store.commit('setUser', user))
+      }
+      return resolve();
+    });
+  })
 }
