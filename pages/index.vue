@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <v-layout text-xs-center>
+      <add-item></add-item>
       <v-flex xs12 md8 offset-md2>
         <div class="wrapper">
 
@@ -16,16 +17,21 @@
           </div>
         </div>
       </v-flex>
+      <v-divider></v-divider>
+
     </v-layout>
+
   </v-container>
 </template>
 
 <script>
 import LoginForm from '~/components/LoginForm'
+import AddItem from '~/components/AddItem'
 
 export default {
 components: {
-  LoginForm
+  LoginForm,
+  AddItem
   }
 }
 </script>

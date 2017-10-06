@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "express-firebase-auth": "^1.0.1",
-    "firebase": "^4.4.0",
+    "firebase": "4.5.0",
     "lowdb": "^1.0.0",
     "nuxt": "^1.0.0-rc11",
     "vuetify": "^0.15.7"
