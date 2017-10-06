@@ -26,7 +26,9 @@ module.exports = {
     },
     extractCSS: true
   },
-
+  router: {
+    middleware: 'router-auth'
+  },
   plugins: [
     // {src: '~/plugins/firebase.js'},
     {src: '~/plugins/vuetify.js'},

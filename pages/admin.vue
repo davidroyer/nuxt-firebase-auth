@@ -1,29 +1,23 @@
 <template>
   <section class="">
-    <div>
-      <v-btn secondary @click="logout">Logout</v-btn>
       <h1 class="title">
-        Admin Page Here
+        Admin
       </h1>
-      <v-avatar
-        v-if="$store.state.user"
-        :tile="false"
-        :size="avatarSize"
-        class="grey lighten-4">
-        <img :src="$store.state.user.photoURL" alt="avatar">
-      </v-avatar>
-      <nuxt-link to="/">Back To Main Page</nuxt-link>
-    </div>
+      <!-- <v-row> -->
+        <v-flex xs12 id="adminNav">
+          <!-- <nuxt-link to="/admin">Back To Main Page</nuxt-link> -->
+          <nuxt-link class="adminNavRoute" to="/admin/settings">Settings</nuxt-link>
+        </v-flex>
+        <v-divider></v-divider>
+        <v-flex id="adminChild" xs12>
+          <nuxt-child :key="$router.fullPath"></nuxt-child>
+        </v-flex>
+      <!-- </v-row> -->
   </section>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      avatarSize: '15'
-    }
-  },
   methods: {
     logout () {
       this.$store.dispatch('userSignOut')
@@ -38,10 +32,18 @@ export default {
 </script>
 
 <style>
-.avatar {
-  max-width: 100px;
+#adminNav {
+  display: flex;
+  flex-flow: row wrap;
+  /*justify-content: space-around;*/
+  margin-bottom: 1em;
 }
-.avatar img {
-  max-width: 100%;
+.adminNavRoute {
+  margin: .25em .5em;
+  padding: .25em;
+}
+#adminChild {
+  margin-top: 1em;
 }
 </style>
+<!--  -->

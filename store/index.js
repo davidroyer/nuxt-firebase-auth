@@ -69,8 +69,19 @@ const createStore = () => {
       },
 
       signInWithGoogle ({commit}) {
-        const provider = new firebase.auth.GoogleAuthProvider()
-        firebase.auth().signInWithRedirect(provider)
+        // return new Promise((resolve, reject) => {
+        //   firebase.auth().onAuthStateChanged((user) => {
+        //     resolve(user)
+        //     commit('setUser', user)
+        //   }, (error) => {
+        //     console.log(error)
+        //   })
+        // })
+
+        return new Promise((resolve, reject) => {
+          const provider = new firebase.auth.GoogleAuthProvider()
+          firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+        })
       },
 
       userSignOut ({commit}) {

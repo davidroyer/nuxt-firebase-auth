@@ -12,3 +12,4 @@ dist
 
 plugins/firebase-auth.js
 middleware/check-auth.js
+backups

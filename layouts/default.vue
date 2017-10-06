@@ -30,9 +30,42 @@
 
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn v-if="user" flat primary color="primary" @click.native.stop="logout">
-        Logout
-        <v-icon right>exit_to_app</v-icon></v-btn>
+      <div v-if="user" id="user" class="text-xs-center">
+            <v-menu
+              offset-x
+              :close-on-content-click="false"
+              :nudge-top="200"
+              v-model="menu">
+              <v-btn icon class="" slot="activator"><v-icon medium>settings</v-icon></v-btn>
+
+                <v-card>
+                  <v-list>
+                    <v-list-tile avatar>
+                      <v-list-tile-avatar>
+                        <img :src="$store.state.user.photoURL" alt="John">
+                      </v-list-tile-avatar>
+                      <v-list-tile-content>
+                        <v-list-tile-title v-if="user.displayName">{{user.displayName}}</v-list-tile-title>
+                        <!-- <v-list-tile-sub-title>Founder of Vuetify.js</v-list-tile-sub-title> -->
+                      </v-list-tile-content>
+                      <!-- </v-list-tile-action> -->
+                    </v-list-tile>
+                    <v-divider></v-divider>
+
+                    <v-list-tile>
+                      <v-spacer></v-spacer>
+                      <v-list-tile-action>
+                        <v-btn secondary class="mt-2" color="info" @click.native.stop="logout">
+                          Logout
+                        </v-btn>
+                      </v-list-tile-action>
+                    </v-list-tile>
+                  </v-list>
+                </v-card>
+            </v-menu>
+
+      </div>
+
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -60,7 +93,8 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Nuxt Firebase Auth'
+      title: 'Nuxt Firebase Auth',
+      menu: false
     }
   },
   computed: {
@@ -83,5 +117,11 @@ export default {
 <style>
 .navigation-drawer>.list:not(.list--dense) .list__tile {
   font-size: 17px;
+}
+.avatar {
+  max-width: 75px;
+}
+.avatar img {
+  max-width: 35px;
 }
 </style>
