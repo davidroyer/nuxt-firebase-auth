@@ -1,5 +1,5 @@
 import Vuex from 'vuex'
-import firebase from 'firebase'
+import firebase, {auth} from '@/services/fireinit.js'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -14,41 +14,15 @@ const createStore = () => {
     mutations: {
       setUser (state, payload) {
         state.user = payload
-      },
-      setLoggedInUser (state, payload) {
-        state.user = payload
-        this.app.router.push('/admin')
       }
     },
     actions: {
-      setActiveUser ({commit}, firebaseUser) {
-        commit('setUser', firebaseUser)
-      },
-
-      async nuxtServerInit ({commit}) {
-        console.log('from nuxtServerInit: ', firebase.auth().currentUser);
-        let user = firebase.auth().currentUser
-        console.log(user);
-        commit('setUser', user)
-      },
-
-      checkForActiveUser ({commit}) {
-        return new Promise((resolve, reject) => {
-          firebase.auth().onAuthStateChanged((user) => {
-            resolve(user)
-            commit('setUser', user)
-          }, (error) => {
-            console.log(error)
-          })
-        })
-      },
-
       autoSignIn ({commit}, payload) {
         commit('setUser', payload)
       },
 
       userSignUp ({commit}, payload) {
-        firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
+        auth.createUserWithEmailAndPassword(payload.email, payload.password)
         .then(firebaseUser => {
           commit('setUser', firebaseUser)
         })
@@ -58,7 +32,7 @@ const createStore = () => {
       },
 
       signInWithEmail ({commit}, payload) {
-        firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
+        auth.signInWithEmailAndPassword(payload.email, payload.password)
         .then(firebaseUser => {
           commit('setUser', firebaseUser)
           this.app.router.push('/admin')
@@ -69,26 +43,16 @@ const createStore = () => {
       },
 
       signInWithGoogle ({commit}) {
-        // return new Promise((resolve, reject) => {
-        //   firebase.auth().onAuthStateChanged((user) => {
-        //     resolve(user)
-        //     commit('setUser', user)
-        //   }, (error) => {
-        //     console.log(error)
-        //   })
-        // })
-
         return new Promise((resolve, reject) => {
           const provider = new firebase.auth.GoogleAuthProvider()
-          firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+          auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+          resolve()
         })
       },
 
-      userSignOut ({commit}) {
-        firebase.auth().signOut()
-        .then(() => {
+      signOut ({commit}) {
+        auth.signOut().then(() => {
           commit('setUser', null)
-          console.log('PUSH ROUTER TO HOME/ANOTHER PAGE');
         }).catch(err => console.log(error))
       }
     }

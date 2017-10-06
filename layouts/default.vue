@@ -46,9 +46,7 @@
                       </v-list-tile-avatar>
                       <v-list-tile-content>
                         <v-list-tile-title v-if="user.displayName">{{user.displayName}}</v-list-tile-title>
-                        <!-- <v-list-tile-sub-title>Founder of Vuetify.js</v-list-tile-sub-title> -->
                       </v-list-tile-content>
-                      <!-- </v-list-tile-action> -->
                     </v-list-tile>
                     <v-divider></v-divider>
 
@@ -104,8 +102,7 @@ export default {
   },
   methods: {
     logout () {
-      this.$store.dispatch('userSignOut')
-      .then(() => {
+      this.$store.dispatch('signOut').then(() => {
         alert('logged out!')
         this.$router.push('/')
       })
