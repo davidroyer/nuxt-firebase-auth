@@ -1,7 +1,6 @@
 import firebase from 'firebase'
-// import firebase from 'firebase'
-// import {firestore} from 'firebase'
 require('firebase/firestore')
+
 var config = {
   apiKey: "AIzaSyAzdoAjlM9YlQ-gl8VRayCxtJbnrl9qDsw",
   authDomain: "nuxt-firebase-auth.firebaseapp.com",
