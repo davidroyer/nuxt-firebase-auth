@@ -1,6 +1,7 @@
 <template>
-  <v-app toolbar footer>
+  <v-app app>
     <v-navigation-drawer
+      app
       persistent
       enableResizeWatcher
       v-model="drawer">
@@ -21,7 +22,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed>
+    <v-toolbar app fixed>
       <v-btn
         icon
         @click.native.stop="drawer = !drawer">
@@ -30,7 +31,7 @@
 
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <div v-if="user" id="user" class="text-xs-center">
+      <template v-if="user" id="user" class="text-xs-center">
             <v-menu
               offset-x
               :close-on-content-click="false"
@@ -53,7 +54,7 @@
                     <v-list-tile>
                       <v-spacer></v-spacer>
                       <v-list-tile-action>
-                        <v-btn secondary class="mt-2" color="info" @click.native.stop="logout">
+                        <v-btn class="mt-2" color="info" @click.native.stop="logout">
                           Logout
                         </v-btn>
                       </v-list-tile-action>
@@ -62,15 +63,17 @@
                 </v-card>
             </v-menu>
 
-      </div>
+      </template>
 
     </v-toolbar>
     <main>
-      <v-container fluid>
-        <nuxt />
-      </v-container>
+      <v-content>
+        <v-container fluid>
+          <nuxt />
+        </v-container>
+      </v-content>
     </main>
-    <v-footer :fixed="fixed">
+    <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer>
   </v-app>
@@ -108,8 +111,11 @@ export default {
         this.$router.push('/')
       })
     }
+  },
+  beforeRouterEnter(to, from, next) {
+
   }
-}
+ }
 </script>
 
 <style>
