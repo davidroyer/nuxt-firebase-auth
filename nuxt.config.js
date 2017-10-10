@@ -30,7 +30,7 @@ module.exports = {
     }
   },
   modules: [
-    '@nuxtjs/pwa'
+    // '@nuxtjs/pwa'
   ],
   router: {
     middleware: 'router-auth'
@@ -44,6 +44,7 @@ module.exports = {
     { src: '~/assets/css/app.styl', lang: 'styl'}
   ],
   vendor: [
-    'firebase'
+    'firebase',
+    'vuetify'
   ]
 }

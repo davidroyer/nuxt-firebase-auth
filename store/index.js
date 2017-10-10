@@ -17,29 +17,8 @@ const createStore = () => {
       }
     },
     actions: {
-      // autoSignIn ({commit}, payload) {
-      //   commit('setUser', payload)
-      // },
-
-      userSignUp ({commit}, payload) {
-        auth.createUserWithEmailAndPassword(payload.email, payload.password)
-        .then(firebaseUser => {
-          commit('setUser', firebaseUser)
-        })
-        .catch(error => {
-          console.log(error.message);
-        })
-      },
-
-      signInWithEmail ({commit}, payload) {
-        auth.signInWithEmailAndPassword(payload.email, payload.password)
-        .then(firebaseUser => {
-          commit('setUser', firebaseUser)
-          this.app.router.push('/admin')
-        })
-        .catch(error => {
-          console.log(error.message);
-        })
+      autoSignIn ({commit}, payload) {
+        commit('setUser', payload)
       },
 
       signInWithGoogle ({commit}) {

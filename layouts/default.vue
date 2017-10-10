@@ -1,5 +1,5 @@
 <template>
-  <v-app app>
+  <v-app>
     <v-navigation-drawer
       app
       persistent
@@ -31,13 +31,13 @@
 
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <template v-if="user" id="user" class="text-xs-center">
+      <div v-if="user" id="user" class="text-xs-center">
             <v-menu
               offset-x
               :close-on-content-click="false"
               :nudge-top="200"
               v-model="menu">
-              <v-btn icon class="" slot="activator"><v-icon medium>settings</v-icon></v-btn>
+              <v-btn icon slot="activator"><v-icon medium>settings</v-icon></v-btn>
 
                 <v-card>
                   <v-list>
@@ -54,7 +54,7 @@
                     <v-list-tile>
                       <v-spacer></v-spacer>
                       <v-list-tile-action>
-                        <v-btn class="mt-2" color="info" @click.native.stop="logout">
+                        <v-btn class="mt-2" color="info" @click.native="logout">
                           Logout
                         </v-btn>
                       </v-list-tile-action>
@@ -63,9 +63,14 @@
                 </v-card>
             </v-menu>
 
-      </template>
+      </div>
 
     </v-toolbar>
+    <!-- <main>
+     <v-container fluid>
+       <nuxt />
+     </v-container>
+   </main> -->
     <main>
       <v-content>
         <v-container fluid>
@@ -111,9 +116,6 @@ export default {
         this.$router.push('/')
       })
     }
-  },
-  beforeRouterEnter(to, from, next) {
-
   }
  }
 </script>
@@ -125,7 +127,5 @@ export default {
 .avatar {
   max-width: 75px;
 }
-.avatar img {
-  max-width: 35px;
-}
+
 </style>
