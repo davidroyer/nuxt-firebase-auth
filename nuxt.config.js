@@ -24,7 +24,10 @@ module.exports = {
         // })
       }
     },
-    extractCSS: true
+    extractCSS: true,
+    analyze: {
+      analyzerMode: 'static'
+    }
   },
   modules: [
     '@nuxtjs/pwa'
@@ -40,5 +43,8 @@ module.exports = {
   css: [
     { src: '~/assets/css/main.css', lang: 'css'},
     { src: '~/assets/css/app.styl', lang: 'styl'}
+  ],
+  vendor: [
+    'firebase'
   ]
 }

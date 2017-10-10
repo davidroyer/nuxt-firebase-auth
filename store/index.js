@@ -17,9 +17,9 @@ const createStore = () => {
       }
     },
     actions: {
-      autoSignIn ({commit}, payload) {
-        commit('setUser', payload)
-      },
+      // autoSignIn ({commit}, payload) {
+      //   commit('setUser', payload)
+      // },
 
       userSignUp ({commit}, payload) {
         auth.createUserWithEmailAndPassword(payload.email, payload.password)
@@ -44,7 +44,6 @@ const createStore = () => {
 
       signInWithGoogle ({commit}) {
         return new Promise((resolve, reject) => {
-          const provider = new firebase.auth.GoogleAuthProvider()
           auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
           resolve()
         })
