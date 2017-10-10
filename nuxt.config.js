@@ -26,6 +26,9 @@ module.exports = {
     },
     extractCSS: true
   },
+  modules: [
+    '@nuxtjs/pwa'
+  ],
   router: {
     middleware: 'router-auth'
   },
