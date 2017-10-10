@@ -1,6 +1,6 @@
 <template>
   <section class="">
-  
+
     <h2>Admin Dashboard for Child Routes</h2>
     <h5>The index page inside the admin folder</h5>
   </section>
@@ -8,21 +8,6 @@
 
 <script>
 export default {
-  data () {
-    return {
-      avatarSize: '15'
-    }
-  },
-  methods: {
-    logout () {
-      this.$store.dispatch('userSignOut')
-      .then(() => {
-        alert('logged out!')
-        this.$router.push('/')
-      })
-    }
-  },
-  middleware: 'auth'
 }
 </script>
 

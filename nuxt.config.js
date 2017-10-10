@@ -36,7 +36,6 @@ module.exports = {
     middleware: 'router-auth'
   },
   plugins: [
-    // {src: '~/plugins/firebase.js'},
     {src: '~/plugins/vuetify.js'},
     '~/plugins/fireauth.js'
   ],

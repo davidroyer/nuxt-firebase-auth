@@ -1,5 +1,5 @@
 import Vuex from 'vuex'
-import firebase, {auth} from '@/services/fireinit.js'
+import firebase, {auth, GoogleProvider} from '@/services/fireinit.js'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -44,7 +44,7 @@ const createStore = () => {
 
       signInWithGoogle ({commit}) {
         return new Promise((resolve, reject) => {
-          auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+          auth.signInWithRedirect(GoogleProvider)
           resolve()
         })
       },
