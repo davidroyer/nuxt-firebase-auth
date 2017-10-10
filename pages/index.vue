@@ -3,7 +3,7 @@
     <v-layout text-xs-center>
       <v-flex xs12 md8 offset-md2>
         <div class="wrapper">
-
+          <h4>Tues 820: v15.7</h4>
           <div v-if="!$store.state.user">
             <login-form></login-form>
             <!-- <v-btn outline large flat nuxt @click="$router.push('/login')" primary>Sign In</v-btn> -->

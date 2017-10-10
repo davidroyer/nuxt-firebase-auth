@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      app
       persistent
+      app
       enableResizeWatcher
       v-model="drawer">
       <v-list>
@@ -66,18 +66,18 @@
       </div>
 
     </v-toolbar>
-    <!-- <main>
+    <main>
      <v-container fluid>
        <nuxt />
      </v-container>
-   </main> -->
-    <main>
+   </main>
+    <!-- <main>
       <v-content>
         <v-container fluid>
           <nuxt />
         </v-container>
       </v-content>
-    </main>
+    </main> -->
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer>
