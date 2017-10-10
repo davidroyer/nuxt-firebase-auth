@@ -54,7 +54,7 @@
                     <v-list-tile>
                       <v-spacer></v-spacer>
                       <v-list-tile-action>
-                        <v-btn class="mt-2" color="info" @click.native="logout">
+                        <v-btn primary class="mt-2" color="primary" @click.native="logout">
                           Logout
                         </v-btn>
                       </v-list-tile-action>
