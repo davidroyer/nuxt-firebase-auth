@@ -26,8 +26,8 @@ export default {
         this.$router.push('/')
       })
     }
-  },
-  middleware: 'auth'
+  }
+  // middleware: 'auth'
 }
 </script>
 
