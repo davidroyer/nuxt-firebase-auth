@@ -16,3 +16,8 @@ html, body {
 .spinner {
   background-color: #3f51b5 !important;
 }
+
+a.adminNavRoute.nuxt-link-exact-active.nuxt-link-active {
+    font-weight: 700;
+    text-decoration: none;
+}

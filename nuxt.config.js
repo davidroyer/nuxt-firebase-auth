@@ -1,6 +1,6 @@
 module.exports = {
   head: {
-    title: 'Nuxt Firebae Auth',
+    title: 'Nuxt Firebase Auth',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -12,7 +12,7 @@ module.exports = {
     ]
   },
   mode: 'spa',
-  loading: { color: '#3B8070' },
+  loading: { color: '#3f51b5' },
   build: {
     extend (config, ctx) {
       if (ctx.dev && ctx.isClient) {
@@ -30,7 +30,7 @@ module.exports = {
     }
   },
   modules: [
-    // '@nuxtjs/pwa'
+    '@nuxtjs/pwa'
   ],
   router: {
     middleware: 'router-auth'

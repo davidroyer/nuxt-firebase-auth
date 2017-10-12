@@ -4,8 +4,8 @@
         <v-flex id="adminChild" xs12>
           <nuxt-child :key="$router.fullPath"></nuxt-child>
         </v-flex>
-        <v-layout row>
-          <v-flex md4>
+        <v-layout row wrap>
+          <v-flex xs12 md4>
             <v-list>
               <v-list-tile v-for="(item, key) in items" :key="key">
                 <v-list-tile-title>{{item.name}}</v-list-tile-title>
@@ -17,9 +17,9 @@
             </v-list>
           </v-flex>
           <v-spacer></v-spacer>
-          <v-flex md6>
+          <v-flex xs12 md6>
             <v-text-field
-              @keyup.enter.stop="addItem"
+              @keyup.enter="addItem"
               name="item"
               label="Add New Item"
               id="item"

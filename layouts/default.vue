@@ -9,6 +9,7 @@
         <v-list-tile
           router
           nuxt
+          exact
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
@@ -115,5 +116,21 @@ export default {
 .avatar {
   max-width: 75px;
 }
+
+.list__tile--active.list__tile.list__tile--link {
+
+}
+a.nuxt-link-exact-active.list__tile--active.list__tile.list__tile--link {
+  font-weight: 900 !important;
+  color: #3f51b5 !important;
+}
+.list__tile--link {
+  border-left: 10px solid transparent;
+}
+.list__tile--link.list__tile--active {
+  color: rgba(0,0,0,.87);
+  border-left: 10px solid gray;
+}
+
 
 </style>
