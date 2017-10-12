@@ -5,10 +5,8 @@ export default (context) => {
 
   return new Promise((resolve, reject) => {
     auth.onAuthStateChanged(user => {
-      if (user) {
-        return resolve(store.dispatch('autoSignIn', user))
-      }
-      return resolve();
+      store.commit('setUser', user)
+      resolve(user)
     })
   })
 }
