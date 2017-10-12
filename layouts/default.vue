@@ -38,7 +38,6 @@
               :nudge-top="200"
               v-model="menu">
               <v-btn icon slot="activator"><v-icon medium>settings</v-icon></v-btn>
-
                 <v-card>
                   <v-list>
                     <v-list-tile avatar>
@@ -71,24 +70,16 @@
        <nuxt />
      </v-container>
    </main>
-    <!-- <main>
-      <v-content>
-        <v-container fluid>
-          <nuxt />
-        </v-container>
-      </v-content>
-    </main> -->
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer>
   </v-app>
 </template>
+
 <script>
 export default {
-
   data () {
     return {
-      clipped: false,
       drawer: true,
       fixed: false,
       items: [
@@ -97,9 +88,6 @@ export default {
         { icon: 'person', title: 'Admin', to: '/admin' },
         // { icon: 'store', title: 'FireStore', to: '/firestore' }
       ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
       title: 'Nuxt Firebase Auth',
       menu: false
     }
