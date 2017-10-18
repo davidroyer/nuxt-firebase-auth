@@ -48,7 +48,7 @@ module.exports = {
     { src: '~/assets/css/app.styl', lang: 'styl'}
   ],
   vendor: [
-    'firebase',
-    'vuetify'
+    // 'firebase',
+    // 'vuetify'
   ]
 }
