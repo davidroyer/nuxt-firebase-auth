@@ -43,10 +43,10 @@
                   <v-list>
                     <v-list-tile avatar>
                       <v-list-tile-avatar>
-                        <img :src="$store.state.user.photoURL" alt="John">
+                        <img :src="$store.state.user.picture" alt="User Avatar">
                       </v-list-tile-avatar>
                       <v-list-tile-content>
-                        <v-list-tile-title v-if="user.displayName">{{user.displayName}}</v-list-tile-title>
+                        <v-list-tile-title v-if="user.name">{{user.name}}</v-list-tile-title>
                       </v-list-tile-content>
                     </v-list-tile>
                     <v-divider></v-divider>

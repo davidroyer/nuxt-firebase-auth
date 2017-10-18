@@ -5,6 +5,7 @@ const createStore = () => {
   return new Vuex.Store({
     state: {
       user: null
+      // loggedIn: false
     },
     getters: {
       activeUser: (state, getters) => {
@@ -17,6 +18,16 @@ const createStore = () => {
       }
     },
     actions: {
+      nuxtServerInit ({ commit }, { req }) {
+        if (req.user) {
+          console.log('RAN NUXT-SERVER-INIT');
+          commit('setUser', req.user)
+          // commit('SET_LOGGED_IN', true)
+          // commit('SET_LOADING', false)
+        } else {
+          // commit('SET_LOADING', false)
+        }
+      },
       autoSignIn ({commit}, payload) {
         commit('setUser', payload)
       },
