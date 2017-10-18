@@ -1,4 +1,5 @@
-export default function ({ store, redirect, route }) {
+// CURRENTLY NOT USING THIS FOR SSR VERSION
+export default function ({ store, redirect, route, isClient }) {
   store.state.user != null && route.name == 'login' ? redirect('/admin') : ''
   store.state.user == null && isAdminRoute(route) ? redirect('/login') : ''
 }

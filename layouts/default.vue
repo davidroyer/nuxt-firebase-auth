@@ -2,13 +2,11 @@
   <v-app>
     <v-navigation-drawer
       persistent
-      app
       enableResizeWatcher
       v-model="drawer">
       <v-list>
         <v-list-tile
           router
-          nuxt
           exact
           v-for="(item, i) in items"
           :key="i"
@@ -23,15 +21,16 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app fixed>
+    <v-toolbar fixed>
       <v-btn
         icon
         @click.native.stop="drawer = !drawer">
         <v-icon>menu</v-icon>
       </v-btn>
 
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-toolbar-title v-text="title" class="hidden-xs-only"></v-toolbar-title>
       <v-spacer></v-spacer>
+      <span class="userName" v-if="user" v-text="user.name"></span>
       <div v-if="user" id="user" class="text-xs-center">
             <v-menu
               offset-x
@@ -71,7 +70,7 @@
        <nuxt />
      </v-container>
    </main>
-    <v-footer :fixed="fixed" app>
+    <v-footer :fixed="fixed">
       <span>&copy; 2017</span>
     </v-footer>
   </v-app>
@@ -81,13 +80,12 @@
 export default {
   data () {
     return {
-      drawer: true,
+      drawer: false,
       fixed: false,
       items: [
         { icon: 'home', title: 'Welcome', to: '/' },
         { icon: 'info', title: 'About', to: '/about' },
         { icon: 'person', title: 'Admin', to: '/admin' },
-        // { icon: 'store', title: 'FireStore', to: '/firestore' }
       ],
       title: 'Nuxt Firebase Auth',
       menu: false
@@ -132,5 +130,10 @@ a.nuxt-link-exact-active.list__tile--active.list__tile.list__tile--link {
   border-left: 10px solid gray;
 }
 
-
+.userName {
+  font-weight: 600;
+  color: #4052b4;
+  font-size: 1.2em;
+  margin-right: .25em;
+}
 </style>

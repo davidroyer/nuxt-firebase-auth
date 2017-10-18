@@ -5,7 +5,7 @@
     <v-flex xs12 id="adminNav">
       <nuxt-link class="adminNavRoute" to="/admin">Dashboard Home</nuxt-link>
       <nuxt-link class="adminNavRoute" to="/admin/settings">Settings</nuxt-link>
-      <nuxt-link class="adminNavRoute" to="/admin/items">Database Example</nuxt-link>
+      <!-- <nuxt-link class="adminNavRoute" to="/admin/items">Database Example</nuxt-link> -->
     </v-flex>
     <v-divider></v-divider>
     <v-flex id="adminChild" xs12>
@@ -17,6 +17,7 @@
 
 <script>
 export default {
+  middleware: 'auth-check'
 }
 </script>
 

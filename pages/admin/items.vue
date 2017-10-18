@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import {DB} from '@/services/fireinit.js'
+import {DB} from '@/plugins/firebase-client-init.js'
 
 export default {
   asyncData({store}) {
@@ -47,11 +47,14 @@ export default {
       items: {}
     }
   },
-  created () {
-    let vm = this
-    vm.itemsRef.on('value', function(snapshot) {
-      vm.items = snapshot.val()
-    });
+  mounted () {
+    // let vm = this
+    // console.log(vm.itemsRef);
+    // if (vm.itemsRef) {
+    //   vm.itemsRef.on('value', function(snapshot) {
+    //     vm.items = snapshot.val()
+    //   });
+    // }
   },
   methods: {
     addItem () {

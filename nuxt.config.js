@@ -33,14 +33,12 @@ module.exports = {
     '@nuxtjs/pwa'
   ],
   router: {
-    middleware: 'router-auth'
+    // middleware: 'router-auth'
   },
   plugins: [
-    {src: '~/plugins/vuetify.js'},
+    {src: '~/plugins/vuetify.js', ssr: true },
     {src: '~/plugins/firebase-client-init.js', ssr: false },
-    // {src: '~/plugins/firebase-admin-init.js', ssr: true },
     {src: '~/plugins/auth-cookie.js', ssr: false }
-    // '~/plugins/fireauth.js'
   ],
   serverMiddleware: [
       '~/serverMiddleware/validateFirebaseIdToken'
