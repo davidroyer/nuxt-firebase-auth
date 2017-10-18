@@ -1,5 +1,5 @@
 import Vuex from 'vuex'
-import firebase, {auth, GoogleProvider} from '@/services/fireinit.js'
+import firebase from 'firebase'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -29,14 +29,18 @@ const createStore = () => {
       },
 
       signInWithGoogle ({commit}) {
+        // var provider = new firebase.auth.GithubAuthProvider();
+        // firebase.auth().signInWithRedirect(provider);
+
+        // firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
         return new Promise((resolve, reject) => {
-          auth.signInWithRedirect(GoogleProvider)
+          firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
           resolve()
         })
       },
 
       signOut ({commit}) {
-        auth.signOut().then(() => {
+        firebase.auth().signOut().then(() => {
           commit('setUser', null)
         }).catch(err => console.log(error))
       }
