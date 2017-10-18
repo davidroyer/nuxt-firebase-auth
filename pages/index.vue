@@ -5,7 +5,6 @@
         <div class="wrapper">
           <div v-if="!$store.state.user">
             <login-form></login-form>
-            <!-- <v-btn outline large flat nuxt @click="$router.push('/login')" primary>Sign In</v-btn> -->
           </div>
           <div v-else class="flexWrapper">
             <h4 class="blue--text">You're logged in!</h4>

@@ -20,7 +20,6 @@ const createStore = () => {
     actions: {
       nuxtServerInit ({ commit }, { req }) {
         if (req.user) {
-          console.log('RAN NUXT-SERVER-INIT');
           commit('setUser', req.user)
         }
       },
@@ -29,10 +28,6 @@ const createStore = () => {
       },
 
       signInWithGoogle ({commit}) {
-        // var provider = new firebase.auth.GithubAuthProvider();
-        // firebase.auth().signInWithRedirect(provider);
-
-        // firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
         return new Promise((resolve, reject) => {
           firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
           resolve()
