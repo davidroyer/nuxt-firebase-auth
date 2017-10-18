@@ -19,8 +19,8 @@ importScripts('workbox-sw.prod.v1.3.0.js');
  */
 const fileManifest = [
   {
-    "url": "/_nuxt/app.141d0371cba1c1f37b26.js",
-    "revision": "588ab8dbaf1007a25d09f3cc31f6f019"
+    "url": "/_nuxt/app.9370c8eb2759a5f0f9d1.js",
+    "revision": "98382d240945c40b278479e5287a4d15"
   },
   {
     "url": "/_nuxt/common.872e737efc4cc1dcbd846ecda25d89a6.css",
@@ -35,8 +35,8 @@ const fileManifest = [
     "revision": "789f1d5e8e2d7da3a8e5d1e354bc29cc"
   },
   {
-    "url": "/_nuxt/manifest.b8e97b7624ffa15dd43d.js",
-    "revision": "2cb820ba3f07751139658f25b2e566b8"
+    "url": "/_nuxt/manifest.c3590326bdd223335f69.js",
+    "revision": "91d93c7016d44bd1001fefa4d80835c8"
   },
   {
     "url": "/_nuxt/pages/about.c16748884647a978066f.js",
@@ -69,7 +69,7 @@ const fileManifest = [
 ];
 
 const workboxSW = new self.WorkboxSW({
-  "cacheId": "nuxt-firebase-auth_0.0.1",
+  "cacheId": "nuxt-firebase-auth_0.0.2",
   "clientsClaim": true,
   "directoryIndex": "/"
 });
