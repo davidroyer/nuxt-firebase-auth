@@ -36,6 +36,7 @@
     "stylus-loader": "^3.0.1"
   },
   "engines": {
-    "node": "8.7.0"
+    "node": "8.7.0",
+    "yarn": "1.1.0"
   }
 }
