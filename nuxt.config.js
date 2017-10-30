@@ -11,7 +11,7 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
-  // mode: 'spa',
+  mode: 'spa',
   loading: { color: '#3f51b5' },
   build: {
     extend (config, ctx) {
@@ -37,13 +37,7 @@ module.exports = {
   },
   plugins: [
     {src: '~/plugins/vuetify.js'},
-    {src: '~/plugins/firebase-client-init.js', ssr: false },
-    // {src: '~/plugins/firebase-admin-init.js', ssr: true },
-    {src: '~/plugins/auth-cookie.js', ssr: false }
-    // '~/plugins/fireauth.js'
-  ],
-  serverMiddleware: [
-      '~/serverMiddleware/validateFirebaseIdToken'
+    '~/plugins/fireauth.js'
   ],
   css: [
     { src: '~/assets/css/main.css', lang: 'css'},

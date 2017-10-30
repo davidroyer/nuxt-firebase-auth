@@ -1,11 +1,10 @@
 import Vuex from 'vuex'
-import firebase from 'firebase'
+import firebase, {auth, GoogleProvider} from '@/services/fireinit.js'
 
 const createStore = () => {
   return new Vuex.Store({
     state: {
       user: null
-      // loggedIn: false
     },
     getters: {
       activeUser: (state, getters) => {
@@ -18,29 +17,19 @@ const createStore = () => {
       }
     },
     actions: {
-      nuxtServerInit ({ commit }, { req }) {
-        if (req.user) {
-          console.log('RAN NUXT-SERVER-INIT');
-          commit('setUser', req.user)
-        }
-      },
       autoSignIn ({commit}, payload) {
         commit('setUser', payload)
       },
 
       signInWithGoogle ({commit}) {
-        // var provider = new firebase.auth.GithubAuthProvider();
-        // firebase.auth().signInWithRedirect(provider);
-
-        // firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
         return new Promise((resolve, reject) => {
-          firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+          auth.signInWithRedirect(GoogleProvider)
           resolve()
         })
       },
 
       signOut ({commit}) {
-        firebase.auth().signOut().then(() => {
+        auth.signOut().then(() => {
           commit('setUser', null)
         }).catch(err => console.log(error))
       }
