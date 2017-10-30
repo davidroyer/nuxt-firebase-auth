@@ -18,9 +18,10 @@ export default (context) => {
     // }
 
     if ((!hadSessionCookie && idToken) || (hadSessionCookie && !idToken)) {
-      console.log('WINDOW RELOAD ABOUT TO HAPPEN');
+      // NOTE: I think this is where I need to get cookie and set store
+      // console.log('WINDOW RELOAD ABOUT TO HAPPEN');
+      // store.commit('setTestUser', )
       window.location.reload(true);
-      return redirect('/admin')
     }
   });
 }
