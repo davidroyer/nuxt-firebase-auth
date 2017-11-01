@@ -5,8 +5,11 @@ export default (context) => {
   console.log('FROM TEST: RUNNING');
 
   firebase.auth().onAuthStateChanged(function (user) {
-    console.log('FROM TEST: ', user);
-    store.commit('setUser', user)
+    if (user && !store.getters.activeUser) {
+      console.log('FROM TEST: ', user);
+      store.commit('setUser', user)
+    }
+
     // resolve(user)
   })
   // return new Promise(function (resolve, reject) {
