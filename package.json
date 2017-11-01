@@ -12,7 +12,9 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "fdeploy": "yarn build && firebase deploy",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "hdeply": "git push heroku ssr:master",
+    "hfdeply": "git push -f heroku ssr:master"
   },
   "dependencies": {
     "cookie-parser": "^1.4.3",
