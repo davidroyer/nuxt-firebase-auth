@@ -19,8 +19,9 @@ export default (context) => {
 
     if ((!hadSessionCookie && idToken) || (hadSessionCookie && !idToken)) {
       console.log('WINDOW RELOAD ABOUT TO HAPPEN');
-      window.location.reload(true);
-      return redirect('/admin')
+      console.log('WINDOW Normally Happens...');
+      // window.location.reload(true);
+      // return redirect('/admin')
     }
   });
 }

@@ -38,7 +38,8 @@ module.exports = {
   plugins: [
     {src: '~/plugins/vuetify.js', ssr: true },
     {src: '~/plugins/firebase-client-init.js', ssr: false },
-    {src: '~/plugins/auth-cookie.js', ssr: false }
+    {src: '~/plugins/auth-cookie.js', ssr: false },
+    {src: '~/plugins/test.js', ssr: false }
   ],
   serverMiddleware: [
       '~/serverMiddleware/validateFirebaseIdToken'
