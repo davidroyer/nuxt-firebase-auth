@@ -30,6 +30,9 @@ components: {
 </script>
 
 <style scoped>
+.fake {
+  background: blue;
+}
 .wrapper {
   margin-top: -7.5em;
 }
