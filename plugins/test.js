@@ -7,5 +7,5 @@ export default (context) => {
     if (user && !store.getters.activeUser) {
       store.commit('setUser', user)
     }
-  })
+  }.bind(this));
 }
