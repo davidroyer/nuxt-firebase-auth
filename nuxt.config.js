@@ -1,6 +1,6 @@
 module.exports = {
   head: {
-    title: 'Nuxt Firebase Auth',
+    title: 'Nuxt SSR - Firebase Auth',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -11,7 +11,6 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
-  // mode: 'spa',
   loading: { color: '#3f51b5' },
   build: {
     extend (config, ctx) {
@@ -25,9 +24,7 @@ module.exports = {
       }
     },
     extractCSS: true,
-    analyze: {
-      analyzerMode: 'static'
-    }
+    analyze: true
   },
   modules: [
     // '@nuxtjs/pwa'
@@ -38,8 +35,7 @@ module.exports = {
   plugins: [
     {src: '~/plugins/vuetify.js', ssr: true },
     {src: '~/plugins/firebase-client-init.js', ssr: false },
-    {src: '~/plugins/auth-cookie.js', ssr: false },
-    {src: '~/plugins/test.js', ssr: false }
+    {src: '~/plugins/auth-cookie.js', ssr: false }
   ],
   serverMiddleware: [
       '~/serverMiddleware/validateFirebaseIdToken'
@@ -49,7 +45,5 @@ module.exports = {
     { src: '~/assets/css/app.styl', lang: 'styl'}
   ],
   vendor: [
-    // 'firebase',
-    // 'vuetify'
   ]
 }
