@@ -24,7 +24,7 @@ module.exports = {
       }
     },
     extractCSS: true,
-    analyze: true
+    // analyze: true
   },
   modules: [
     // '@nuxtjs/pwa'
