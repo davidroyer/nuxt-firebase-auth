@@ -2,7 +2,8 @@
   <v-layout>
     <v-flex text-xs-center xs12 sm6 offset-sm3>
       <div v-if="loading" class="loading">
-        <h5>Loading...</h5>
+        <v-progress-circular indeterminate :size="70" color="primary"></v-progress-circular>
+        <h4>Loading...</h4>
       </div>
       <div v-else class="login">
         <h2 class="title">Sign In with Google</h2>
