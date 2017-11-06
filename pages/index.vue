@@ -3,7 +3,7 @@
     <v-layout text-xs-center>
       <v-flex xs12 md8 offset-md2>
         <div class="wrapper">
-          <div v-if="!$store.state.user">
+          <div v-if="!$store.getters.activeUser">
             <login-form></login-form>
           </div>
           <div v-else class="flexWrapper">
