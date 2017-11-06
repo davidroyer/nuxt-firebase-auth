@@ -23,6 +23,10 @@ module.exports = {
         // })
       }
     },
+    vendor: [
+      'vuetify',
+      '~/plugins/firebase-client-init.js'
+    ],
     extractCSS: true,
     // analyze: true
   },
@@ -43,7 +47,5 @@ module.exports = {
   css: [
     { src: '~/assets/css/main.css', lang: 'css'},
     { src: '~/assets/css/app.styl', lang: 'styl'}
-  ],
-  vendor: [
   ]
 }
