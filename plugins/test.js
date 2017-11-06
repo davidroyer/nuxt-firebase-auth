@@ -5,7 +5,7 @@ export default (context) => {
 
   firebase.auth().onAuthStateChanged(function (user) {
     if (user && !store.getters.activeUser) {
-      store.commit('setUser', user)
+      // store.commit('setUser', user)
     }
   }.bind(this));
 }

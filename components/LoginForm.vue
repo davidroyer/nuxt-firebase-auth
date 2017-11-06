@@ -1,8 +1,14 @@
 <template>
   <v-layout>
     <v-flex text-xs-center xs12 sm6 offset-sm3>
-      <h2 class="title">Sign In with Google</h2>
-      <v-btn class="signIn mb-2" primary @click.native="googleSignUp">Google Sign In</v-btn>
+      <div v-if="loading" class="loading">
+        <h5>Loading...</h5>
+      </div>
+      <div v-else class="login">
+        <h2 class="title">Sign In with Google</h2>
+        <v-btn class="signIn mb-2" primary @click.native="googleSignUpPopup">Google Sign In - Popup</v-btn>
+        <v-btn class="signIn mb-2" primary @click.native="googleSignUpRedirect">Google Sign In - Redirect</v-btn>
+      </div>
     </v-flex>
   </v-layout>
 
@@ -15,6 +21,14 @@ export default {
       formEmail: '',
       formPassword: ''
     }
+  },
+  computed: {
+    loading() {
+      return this.$store.getters.isLoading
+    }
+  },
+  created() {
+
   },
   methods: {
     emailLogin () {
@@ -29,20 +43,24 @@ export default {
         console.log(e.message);
       })
     },
-    googleSignUp () {
-
-      this.$store.dispatch('signInWithGoogle').then(() => {
-        console.log('inside then statement on login');
+    googleSignUpPopup () {
+      this.$store.dispatch('signInWithGooglePopup').then(() => {
+        this.$router.replace('/admin')
+      }).catch((e) => {
+        console.log(e.message);
+      })
+    },
+    googleSignUpRedirect () {
+      this.$store.dispatch('signInWithGoogleRedirect').then(() => {
+        // this.$router.replace('/admin')
       }).catch((e) => {
         console.log(e.message);
       })
     }
+
   }
 }
 </script>
 
 <style lang="css">
-.signIn {
-
-}
 </style>

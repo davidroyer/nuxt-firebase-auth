@@ -1,20 +1,36 @@
 import Vuex from 'vuex'
 import firebase from 'firebase'
 
+function buildUserObject (authData) {
+  let { email, displayName, uid, photoURL } = authData.user
+  let user = {}
+  user['email'] = email
+  user['name'] = displayName
+  user['uid'] = uid
+  user['picture'] = photoURL
+  return user
+}
+
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      user: null
-      // loggedIn: false
+      user: null,
+      loading: false
     },
     getters: {
       activeUser: (state, getters) => {
         return state.user
+      },
+      isLoading: (state, getters) => {
+        return state.loading
       }
     },
     mutations: {
       setUser (state, payload) {
         state.user = payload
+      },
+      setLoading (state, payload) {
+        state.loading = payload
       }
     },
     actions: {
@@ -23,15 +39,27 @@ const createStore = () => {
           commit('setUser', req.user)
         }
       },
+
       autoSignIn ({commit}, payload) {
         commit('setUser', payload)
       },
 
-      signInWithGoogle ({commit}) {
-        return new Promise((resolve, reject) => {
-          firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
-          resolve()
-        })
+// Redirect doesn't work so well yet
+      async signInWithGoogleRedirect ({commit}) {
+        console.log('From signInWithGoogleRedirect:  ');
+        commit('setLoading', true)
+        firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+
+        let authData = await firebase.auth().getRedirectResult()
+        commit('setUser', buildUserObject(authData))
+        commit('setLoading', false)
+      },
+
+      async signInWithGooglePopup ({commit}) {
+        commit('setLoading', true)
+        let authData = await firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        commit('setUser', buildUserObject(authData))
+        commit('setLoading', false)
       },
 
       signOut ({commit}) {
