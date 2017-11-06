@@ -16,10 +16,10 @@
     "hdeploy": "git push heroku ssr:master"
   },
   "dependencies": {
-    "cookie-parser": "^1.4.3",
-    "firebase-admin": "^5.4.2",
     "@nuxtjs/pwa": "^1.0.2",
+    "cookie-parser": "^1.4.3",
     "firebase": "4.5.1",
+    "firebase-admin": "^5.4.2",
     "nuxt": "^1.0.0-rc11",
     "vuetify": "^0.16.9"
   },

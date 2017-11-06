@@ -7,7 +7,7 @@
       </div>
       <div v-else class="login">
         <h2 class="title">Sign In with Google</h2>
-        <v-btn class="signIn mb-2" primary @click.native="googleSignUpPopup">Google Sign In - Popup</v-btn>
+        <v-btn class="signIn mb-2" primary @click.native="googleSignUpPopup">Google Sign In</v-btn>
       </div>
     </v-flex>
   </v-layout>
