@@ -3,7 +3,8 @@
     <v-navigation-drawer
       persistent
       enableResizeWatcher
-      v-model="drawer">
+      v-model="drawer"
+      app>
       <v-list>
         <v-list-tile
           router
@@ -21,7 +22,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed>
+    <v-toolbar fixed app>
       <v-btn
         icon
         @click.native.stop="drawer = !drawer">
@@ -66,11 +67,18 @@
 
     </v-toolbar>
     <main>
+      <v-content>
+        <v-container>
+          <nuxt />
+        </v-container>
+      </v-content>
+    </main>
+    <!-- <main>
      <v-container fluid>
        <nuxt />
      </v-container>
-   </main>
-    <v-footer :fixed="fixed">
+   </main> -->
+    <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer>
   </v-app>

@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/droyer/.nvm/versions/node/v8.7.0/bin/node /usr/local/bin/yarn add child_process dns fs net tls
+  /Users/droyer/.nvm/versions/node/v8.7.0/bin/node /Users/droyer/.nvm/versions/node/v8.7.0/bin/yarn
 
 PATH: 
   /Users/droyer/.nvm/versions/node/v8.7.0/bin:/users/droyer/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -16,7 +16,7 @@ Platform:
 npm manifest: 
   {
     "name": "nuxt-firebase-auth",
-    "version": "0.0.1",
+    "version": "0.0.31",
     "description": "Nuxt.js with Firebase Auth project",
     "author": "David Royer <droyer01@gmail.com>",
     "private": true,
@@ -28,7 +28,8 @@ npm manifest:
       "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
       "precommit": "npm run lint",
       "fdeploy": "yarn build && firebase deploy",
-      "heroku-postbuild": "npm run build"
+      "heroku-postbuild": "npm run build",
+      "hdeploy": "git push heroku ssr:master"
     },
     "dependencies": {
       "cookie-parser": "^1.4.3",
@@ -36,7 +37,7 @@ npm manifest:
       "@nuxtjs/pwa": "^1.0.2",
       "firebase": "4.5.1",
       "nuxt": "^1.0.0-rc11",
-      "vuetify": "^0.15.7"
+      "vuetify": "^0.16.9"
     },
     "devDependencies": {
       "babel-eslint": "^7.2.3",
@@ -50,6 +51,10 @@ npm manifest:
       "eslint-plugin-standard": "^3.0.1",
       "stylus": "^0.54.5",
       "stylus-loader": "^3.0.1"
+    },
+    "engines": {
+      "node": "8.7.0",
+      "yarn": "1.1.0"
     }
   }
 
@@ -6548,8 +6553,14 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: https://registry.yarnpkg.com/child_process: ETIMEDOUT
-      at Timeout._onTimeout (/usr/local/lib/node_modules/yarn/lib/cli.js:122581:19)
-      at ontimeout (timers.js:471:11)
-      at tryOnTimeout (timers.js:306:5)
-      at Timer.listOnTimeout (timers.js:266:5)
+  Error: connect ENETUNREACH 104.16.63.173:443 - Local (0.0.0.0:57432)
+      at Object._errnoException (util.js:1021:11)
+      at _exceptionWithHostPort (util.js:1043:20)
+      at internalConnect (net.js:964:16)
+      at emitLookup (net.js:1099:7)
+      at /Users/droyer/.nvm/versions/node/v8.7.0/lib/node_modules/yarn/lib/cli.js:93786:28
+      at /Users/droyer/.nvm/versions/node/v8.7.0/lib/node_modules/yarn/lib/cli.js:93695:13
+      at RawTask.module.exports.RawTask.call (/Users/droyer/.nvm/versions/node/v8.7.0/lib/node_modules/yarn/lib/cli.js:78358:19)
+      at flush (/Users/droyer/.nvm/versions/node/v8.7.0/lib/node_modules/yarn/lib/cli.js:78440:29)
+      at _combinedTickCallback (internal/process/next_tick.js:131:7)
+      at process._tickCallback (internal/process/next_tick.js:180:9)

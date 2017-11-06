@@ -21,7 +21,7 @@
     "@nuxtjs/pwa": "^1.0.2",
     "firebase": "4.5.1",
     "nuxt": "^1.0.0-rc11",
-    "vuetify": "^0.15.7"
+    "vuetify": "^0.16.9"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
