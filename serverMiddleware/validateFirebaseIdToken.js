@@ -1,5 +1,6 @@
 const admin = require('../services/firebase-admin-init.js')
 const cookieParser = require('cookie-parser')();
+global.XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
 
 module.exports = function (req, res, next) {
 

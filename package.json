@@ -21,7 +21,8 @@
     "firebase": "4.5.1",
     "firebase-admin": "^5.4.2",
     "nuxt": "^1.0.0-rc11",
-    "vuetify": "^0.16.9"
+    "vuetify": "^0.16.9",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
