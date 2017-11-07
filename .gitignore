@@ -16,3 +16,4 @@ middleware/check-auth.js
 backups
 nuxt-firebase-auth-key.json
 .env
+serviceAccountKey.json
