@@ -73,11 +73,6 @@
         </v-container>
       </v-content>
     </main>
-    <!-- <main>
-     <v-container fluid>
-       <nuxt />
-     </v-container>
-   </main> -->
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer>

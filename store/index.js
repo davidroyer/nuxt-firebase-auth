@@ -42,15 +42,11 @@ const createStore = () => {
           commit('setUser', req.user)
         }
       },
-      autoSignIn ({commit}, payload) {
-        commit('setUser', payload)
-      },
       // Redirect doesn't work so well yet
       async signInWithGoogleRedirect ({commit}) {
         console.log('From signInWithGoogleRedirect:  ');
         commit('setLoading', true)
         Auth.signInWithRedirect(GoogleAuthProvider)
-
         let authData = await Auth.getRedirectResult()
         commit('setUser', buildUserObject(authData))
         commit('setLoading', false)
@@ -63,10 +59,9 @@ const createStore = () => {
         commit('setLoading', false)
       },
 
-      signOut ({commit}) {
-        Auth.signOut().then(() => {
-          commit('setUser', null)
-        }).catch(err => console.log(error))
+      async signOut ({commit}) {
+        await Auth.signOut()
+        commit('setUser', null)
       }
     }
   })

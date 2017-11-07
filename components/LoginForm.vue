@@ -11,56 +11,20 @@
       </div>
     </v-flex>
   </v-layout>
-
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      formEmail: '',
-      formPassword: ''
-    }
-  },
   computed: {
     loading() {
       return this.$store.getters.isLoading
     }
   },
-  created() {
-
-  },
   methods: {
-    emailLogin () {
-      this.$store.dispatch('signInWithEmail', {
-        email: this.formEmail,
-        password: this.formPassword
-      }).then(() => {
-        this.formEmail = ''
-        this.formPassword = ''
-
-      }).catch((e) => {
-        console.log(e.message);
-      })
-    },
-    googleSignUpPopup () {
-      this.$store.dispatch('signInWithGooglePopup').then(() => {
-        this.$router.replace('/admin')
-      }).catch((e) => {
-        console.log(e.message);
-      })
-    },
-    googleSignUpRedirect () {
-      this.$store.dispatch('signInWithGoogleRedirect').then(() => {
-        // this.$router.replace('/admin')
-      }).catch((e) => {
-        console.log(e.message);
-      })
+    async googleSignUpPopup () {
+      await this.$store.dispatch('signInWithGooglePopup')
+      this.$router.replace('/admin')
     }
-
   }
 }
 </script>
-
-<style lang="css">
-</style>
