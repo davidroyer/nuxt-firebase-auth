@@ -14,10 +14,10 @@
     "fdeploy": "yarn build && firebase deploy"
   },
   "dependencies": {
-    "@nuxtjs/pwa": "^1.0.2",
-    "firebase": "4.5.0",
-    "nuxt": "^1.0.0-rc11",
-    "vuetify": "^0.15.7"
+    "@nuxtjs/pwa": "^2.0.5",
+    "firebase": "^4.10.0",
+    "nuxt": "^1.0.0",
+    "vuetify": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
