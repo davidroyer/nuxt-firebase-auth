@@ -1,4 +1,4 @@
-# Nuxt.js Firebase Auth - SSR Version
+# Nuxt.js Firebase Auth - Static Generated Version
 
 This is an example of using Nuxt.js in SPA mode with Firebase Authentication
 
