@@ -14,10 +14,6 @@
                 Admin Subroute:  <nuxt-link to="/admin/settings">/admin/settings</nuxt-link>
               </div>
         </v-card-text>
-        <!-- <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="primary" flat nuxt to="/inspire">Continue</v-btn>
-        </v-card-actions> -->
       </v-card>
     </v-flex>
   </v-layout>
