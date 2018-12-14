@@ -23,7 +23,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app fixed>
+    <v-toolbar app >
       <v-btn
         icon
         @click.native.stop="drawer = !drawer">
@@ -64,12 +64,18 @@
         </v-menu>
       </div>
     </v-toolbar>
+  <!-- <v-content>
+    <v-container fluid>
+      <router-view></router-view>
+    </v-container>
+  </v-content>
+       -->
     <v-content>
      <v-container fluid>
       <nuxt />
      </v-container>
    </v-content>
-    <v-footer :fixed="fixed" app>
+    <v-footer app :fixed="fixed" class="justify-center px-4">
       <span>&copy; 2017</span>
     </v-footer>
   </v-app>
@@ -79,7 +85,7 @@
 export default {
   data () {
     return {
-      drawer: true,
+      drawer: null,
       fixed: false,
       items: [
         { icon: 'home', title: 'Welcome', to: '/' },

@@ -1,28 +1,28 @@
 <template>
-    <v-layout text-xs-center>
-      <v-flex xs12 md8 offset-md2>
-        <div class="wrapper">
+  <v-layout justify-center align-center>
+    <v-flex xs12 sm8>
+        <div class="mt-5">
           <div v-if="!$store.state.user">
             <login-form></login-form>
-            <!-- <v-btn outline large flat nuxt @click="$router.push('/login')" primary>Sign In</v-btn> -->
           </div>
-          <div v-else class="flexWrapper">
+          <div v-else class="flexWrapper align-center">
             <h4 class="blue--text">You're logged in!</h4>
             <v-btn icon class="blue white--text">
               <v-icon>thumb_up</v-icon>
             </v-btn>
           </div>
         </div>
-      </v-flex>
-    </v-layout>
+    </v-flex>
+  </v-layout>
+
 </template>
 
 <script>
 import LoginForm from '~/components/LoginForm'
 
 export default {
-components: {
-  LoginForm
+  components: {
+    LoginForm
   }
 }
 </script>
