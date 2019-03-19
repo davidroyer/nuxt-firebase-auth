@@ -11,7 +11,7 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
-  mode: 'spa',
+  // mode: 'spa',
   loading: { color: '#3f51b5' },
   build: {
     extend (config, ctx) {
